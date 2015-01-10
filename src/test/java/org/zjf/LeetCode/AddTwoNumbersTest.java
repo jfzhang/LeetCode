@@ -2,6 +2,7 @@ package org.zjf.LeetCode;
 
 import static org.junit.Assert.*;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.zjf.LeetCode.AddTwoNumbers.ListNode;
@@ -61,4 +62,8 @@ public class AddTwoNumbersTest {
 		assertEquals(r.next.next.val, 1);
 	}
 
+	@After
+	public void tearDown() {
+		addTwoNumbers = null;
+	}
 }
