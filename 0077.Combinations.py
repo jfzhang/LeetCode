@@ -3,7 +3,8 @@ Given two integers n and k, return all possible combinations of k numbers out of
 
 You may return the answer in any order.
 
-Example 1: Input: n = 4, k = 2
+Example 1:
+Input: n = 4, k = 2
 Output:
 [
     [2, 4],
@@ -14,23 +15,27 @@ Output:
     [1, 4],
 ]
 
-Example 2: Input: n = 1, k = 1
+Example 2:
+Input: n = 1, k = 1
 Output: [[1]]
 
-Constraints: 1 <= n <= 20, 1 <= k <= n
+Constraints:
+    1 <= n <= 20
+    1 <= k <= n
 """
 from typing import List
 
 
 def combine(n: int, k: int) -> List[List[int]]:
-    # backtrack
+    # Use Backtracking
     def backtrack(start: int, comb: List[int], left: int):
         if left == 0:
             result.append(comb)
             return
 
         # for i in range(start, n + 1):
-        for i in range(start, n + 1 - (left - 1)):  # optimize by trimming, need enough left for k combination
+        # optimize by trimming, need enough left for k combination
+        for i in range(start, n + 1 - (left - 1)):
             backtrack(i + 1, comb + [i], left - 1)
 
     result = []

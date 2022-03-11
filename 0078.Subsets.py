@@ -12,14 +12,15 @@ Input: nums = [0]
 Output: [[],[0]]
 
 Constraints:
-* 1 <= nums.length <= 10
-* -10 <= nums[i] <= 10
-* All the numbers of nums are unique.
+    1 <= nums.length <= 10
+    -10 <= nums[i] <= 10
+    All the numbers of nums are unique.
 """
 from typing import List
 
 
 def subsets(nums: List[int]) -> List[List[int]]:
+    # Use Bit Manipulation
     res = []
     n = len(nums)
     for i in range(2 ** n):
@@ -31,4 +32,4 @@ def subsets(nums: List[int]) -> List[List[int]]:
     return res
 
 
-print(subsets([1,2,3]))
+print(subsets([1, 2, 3]))
