@@ -29,6 +29,7 @@ from typing import List
 
 
 def exist(board: List[List[str]], word: str) -> bool:
+    # Use Backtracking
 
     def search_board(start_i: int, start_j: int, word: str):
         if not word:
