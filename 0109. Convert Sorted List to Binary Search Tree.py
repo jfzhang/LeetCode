@@ -6,7 +6,6 @@ For this problem, a height-balanced binary tree is defined as a binary tree in w
 every node never differ by more than 1.
 """
 
-
 # Definition for singly-linked list.
 from typing import Optional
 
@@ -25,6 +24,8 @@ class TreeNode:
         self.right = right
 
 
+# inorder traversal of a binary tree will get all elements in ascending order
+# use it assign back the value from list to tree
 def sortedListToBST(head: Optional[ListNode]) -> Optional[TreeNode]:
     length = 0
     node = head
