@@ -22,5 +22,6 @@ def generate(numRows: int) -> List[List[int]]:
 
     return res
 
+
 # test cases
 print(generate(5))
