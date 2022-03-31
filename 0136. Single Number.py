@@ -6,9 +6,9 @@ from typing import List
 
 
 def singleNumber(nums: List[int]) -> int:
-    ans = 0
+    res = 0
 
     for x in nums:
-        ans ^= x
+        res ^= x
 
-    return ans
+    return res
