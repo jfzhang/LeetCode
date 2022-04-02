@@ -13,7 +13,7 @@ class ListNode:
         self.next = None
 
 
-def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
+def detectCycle(head: Optional[ListNode]) -> Optional[ListNode]:
     if not head or not head.next:
         return None
 
@@ -23,7 +23,7 @@ def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
         if not fast.next:
             return None
         fast = fast.next.next
-        if slow == fast:
+        if slow == fast:    # there is a cycle
             fast = head
             while fast != slow:
                 slow = slow.next

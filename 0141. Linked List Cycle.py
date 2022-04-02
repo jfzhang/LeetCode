@@ -13,7 +13,7 @@ class ListNode:
         self.next = None
 
 
-def hasCycle(self, head: Optional[ListNode]) -> bool:
+def hasCycle(head: Optional[ListNode]) -> bool:
     # use two points, one slow, one fast
     if not head or not head.next:
         return False
