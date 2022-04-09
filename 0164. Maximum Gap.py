@@ -26,6 +26,7 @@ def maximumGap(nums: List[int]) -> int:
     if n < 2:
         return 0
 
+    """
     # use radix sort
     exp = 1
     buff = [0] * n
@@ -49,7 +50,35 @@ def maximumGap(nums: List[int]) -> int:
 
     # find the max gap
     return max((nums[i + 1] - nums[i]) for i in range(0, n - 1))
+    """
+
+    # use bucket sort
+    min_val, max_val = min(nums), max(nums)
+    interval = max((max_val - min_val) // (n - 1), 1)
+    size = (max_val - min_val) // interval + 1
+    bucket = [[-1] * 2 for _ in range(size)]
+
+    for num in nums:
+        idx = (num - min_val) // interval
+        if bucket[idx][0] == -1:
+            bucket[idx][0], bucket[idx][1] = num, num
+        else:
+            bucket[idx][0] = max(bucket[idx][0], num)
+            bucket[idx][1] = min(bucket[idx][1], num)
+
+    # find the max gap
+    pre = -1
+    ans = 0
+    for i in range(size):
+        if bucket[i][0] == -1:
+            continue
+        if pre >= 0:
+            ans = max(ans, bucket[i][1] - bucket[pre][0])
+        pre = i
+
+    return ans
 
 
 # test cases
-print(maximumGap([1, 100]))  # 99
+#print(maximumGap([3, 6, 9, 1]))  # 3
+print(maximumGap([1, 1000000]))  # 99
