@@ -37,7 +37,7 @@ def maxProfit(prices: List[int]) -> int:
     For S1, it would not generate any profits, so we don't need to consider it
     For S2, if day (i) is S2, then S2 = max( S2 (i-1), -price[i] ), meaning no operator or buy once in day i
     For S3, if day (i) is S3, then S3 = max( S3 (i-1), S2 (i-1) + price[i]), meaning no operator or sell once if only
-    buy onece
+    buy once
     For S4, if day (i) is S4, then S4 = max( S4 (i-1), S3 (i-1) - price[i])
     For S5, if day (i) is S5, then S5 = max( S5 (i-1), S4 (i-1) + price[i])
     """
